@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - BBU Student Management System{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Emerald Modern Academic theme - change these 4 colors to change the theme */
+    :root {
+        --bbu-primary: #059669;
+        --bbu-secondary: #047857;
+        --bbu-accent: #10b981;
+        --bbu-gold: #f59e0b;
+    }
+
+    /* Override the purple navbar and buttons from base.html (this block loads after it) */
+    .navbar { background: linear-gradient(135deg, var(--bbu-primary), var(--bbu-secondary)); }
+    .btn-primary { background: var(--bbu-primary); border: none; }
+    .btn-primary:hover { background: var(--bbu-secondary); }
+
+    .hero {
+        background: linear-gradient(135deg, var(--bbu-primary), var(--bbu-secondary));
+        color: #ffffff;
+        padding: 3rem 2rem;
+        border-radius: 16px;
+    }
+    .hero-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.18);
+        padding: 0.3rem 0.8rem;
+        border-radius: 999px;
+        margin: 0 0.4rem 0.4rem 0;
+        font-size: 0.9rem;
+    }
+    .stat-number { color: var(--bbu-primary); font-weight: 700; }
+    .highlight-box {
+        background: #ffffff;
+        border-left: 4px solid var(--bbu-gold);
+        border-radius: 8px;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO: replace every [bracketed] value with your own details -->
+<div class="hero mb-4">
+    <h1 class="display-5 fw-bold">📚 ប្រព័ន្ធគ្រប់គ្រងនិស្សិត</h1>
+    <p class="lead mb-3">
+Student Management System by Build Bright University
+ស្វាគមន៍ដល់ប្រព័ន្ធគ្រប់គ្រងនិស្សិតដែលប្រើ Django Framework
+    </p>
+    <span class="hero-badge">Vann Heng</span>
+    <span class="hero-badge">Room: B103</span>
+    <span class="hero-badge">Year: 2</span>
+    <span class="hero-badge">ST: 24</span>
+</div>
+
+<!-- STAT CARDS -->
+<div class="row mt-4">
+    <div class="col-md-3 mb-4">
+        <div class="card card-bbu h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">👥 សិស្ស</h5>
+                <h2 class="stat-number">{{ total_students }}</h2>
+                <p class="text-muted">សិស្សសរុប</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{% url 'students:student_list' %}" class="btn btn-sm btn-primary">មើលលម្អិត</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card card-bbu h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">📖 វគ្គ</h5>
+                <h2 class="stat-number">{{ total_courses }}</h2>
+                <p class="text-muted">វគ្គសរុប</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{% url 'courses:course_list' %}" class="btn btn-sm btn-primary">មើលលម្អិត</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card card-bbu h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">✍️ ការចុះឈ្មោះ</h5>
+                <h2 class="stat-number">{{ total_enrollments }}</h2>
+                <p class="text-muted">ការចុះឈ្មោះសរុប</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="{% url 'enrollments:enrollment_list' %}" class="btn btn-sm btn-primary">មើលលម្អិត</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card card-bbu h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">⚙️ Admin</h5>
+                <h2 class="stat-number">🔧</h2>
+                <p class="text-muted">ផ្ទាំងគ្រប់គ្រង</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+                <a href="/admin/" class="btn btn-sm btn-primary">ចូលគ្រប់គ្រង</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- STATUS + HIGHLIGHTS: rewrite the highlights in your own words -->
+<div class="row mt-4">
+    <div class="col-md-4 mb-4">
+        <h3 class="h4">📊 ស្ថានភាព</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>សិស្សដែលសកម្ម:</strong> {{ active_students }}</li>
+            <li class="list-group-item"><strong>វគ្គដែលសកម្ម:</strong> {{ active_courses }}</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- USEFUL LINKS -->
+<div class="row mt-2">
+    <div class="col-md-12">
+        <h3 class="h4">🔗 ឯកសារមានប្រយោជន៍</h3>
+        <ul>
+            <li><a href="https://docs.djangoproject.com/" target="_blank" rel="noopener">Django Documentation</a></li>
+            <li><a href="https://www.django-rest-framework.org/" target="_blank" rel="noopener">Django REST Framework</a></li>
+            <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Documentation</a></li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
