@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Moul&family=Kantumruy+Pro:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Moul&display=swap" rel="stylesheet">
     <style>
+        /* Emerald Modern Academic theme - change these 4 colors to change the whole site */
         :root {
             --bbu-primary: #059669;
             --bbu-secondary: #047857;
@@ -21,7 +22,6 @@
         }
         body {
             background-color: #f8f9fa;
-            font-family: 'Poppins', 'Kantumruy Pro', sans-serif;
         }
         .navbar {
             background: linear-gradient(135deg, var(--bbu-primary) 0%, var(--bbu-secondary) 100%);
@@ -84,9 +84,6 @@
                         <a class="nav-link" href="{% url 'enrollments:enrollment_list' %}">Enrollments</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/">Admin Panel</a>
-                    </li>
                     <li class="nav-item dropdown ms-lg-2">
                         <a class="nav-link dropdown-toggle btn btn-sm btn-outline-light text-white px-3" href="#" role="button" data-bs-toggle="dropdown">
                             👤 {{ user.username }}
@@ -123,6 +120,7 @@
         {% block content %}{% endblock %}
     </div>
 
+    <!-- FOOTER: replace every [bracketed] value with your own details -->
     <footer class="site-footer text-center py-4 mt-5">
         <p class="mb-0 small">© 2026 Build Bright University - Student Management System</p>
     </footer>
