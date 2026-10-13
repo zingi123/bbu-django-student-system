@@ -4,7 +4,6 @@
 
 {% block extra_css %}
 <style>
-    /* Emerald Modern Academic theme - change these 4 colors to change the theme */
     :root {
         --bbu-primary: #059669;
         --bbu-secondary: #047857;
@@ -12,7 +11,6 @@
         --bbu-gold: #f59e0b;
     }
 
-    /* Override the purple navbar and buttons from base.html (this block loads after it) */
     .navbar { background: linear-gradient(135deg, var(--bbu-primary), var(--bbu-secondary)); }
     .btn-primary { background: var(--bbu-primary); border: none; }
     .btn-primary:hover { background: var(--bbu-secondary); }
@@ -39,14 +37,23 @@
         padding: 1rem 1.25rem;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
+    .font {
+        font-family: 'Moul';
+        font-weight: 400;
+        line-height: 1.6;
+        letter-spacing: 0.02em;
+    }
+    .card-title, h3 {
+        font-family: 'Kantumruy Pro', 'Poppins', sans-serif;
+        font-weight: 700;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<!-- HERO: replace every [bracketed] value with your own details -->
 <div class="hero mb-4">
-    <h1 class="display-5 fw-bold">📚 ប្រព័ន្ធគ្រប់គ្រងនិស្សិត</h1>
+    <h1 class="font">📚 ប្រព័ន្ធគ្រប់គ្រងនិស្សិត</h1>
     <p class="lead mb-3">
 Student Management System by Build Bright University
 ស្វាគមន៍ដល់ប្រព័ន្ធគ្រប់គ្រងនិស្សិតដែលប្រើ Django Framework
@@ -57,7 +64,6 @@ Student Management System by Build Bright University
     <span class="hero-badge">ST: 24</span>
 </div>
 
-<!-- STAT CARDS -->
 <div class="row mt-4">
     <div class="col-md-3 mb-4">
         <div class="card card-bbu h-100">
@@ -112,26 +118,12 @@ Student Management System by Build Bright University
     </div>
 </div>
 
-<!-- STATUS + HIGHLIGHTS: rewrite the highlights in your own words -->
 <div class="row mt-4">
     <div class="col-md-4 mb-4">
         <h3 class="h4">📊 ស្ថានភាព</h3>
         <ul class="list-group">
             <li class="list-group-item"><strong>សិស្សដែលសកម្ម:</strong> {{ active_students }}</li>
             <li class="list-group-item"><strong>វគ្គដែលសកម្ម:</strong> {{ active_courses }}</li>
-        </ul>
-    </div>
-
-</div>
-
-<!-- USEFUL LINKS -->
-<div class="row mt-2">
-    <div class="col-md-12">
-        <h3 class="h4">🔗 ឯកសារមានប្រយោជន៍</h3>
-        <ul>
-            <li><a href="https://docs.djangoproject.com/" target="_blank" rel="noopener">Django Documentation</a></li>
-            <li><a href="https://www.django-rest-framework.org/" target="_blank" rel="noopener">Django REST Framework</a></li>
-            <li><a href="https://getbootstrap.com/" target="_blank" rel="noopener">Bootstrap Documentation</a></li>
         </ul>
     </div>
 </div>
